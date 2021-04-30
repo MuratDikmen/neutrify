@@ -1,1 +1,1 @@
-export const API_ENDPOINT = "https://neutrify-backend-api.azurewebsites.net"; 
+export const API_ENDPOINT = "https://api.neutrify.online";

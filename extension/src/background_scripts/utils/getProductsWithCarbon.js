@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_ENDPOINT } from "../../config.js/global";
 
-export default function getProductsWithCarbon (messageData, sendResponse) {
+export default function getProductsWithCarbon(messageData, sendResponse) {
   let { rawCart } = messageData;
 
   console.log(rawCart);
@@ -21,18 +21,21 @@ export default function getProductsWithCarbon (messageData, sendResponse) {
           await axios.get(`${API_ENDPOINT}/products/get/${rawCartItemId}`, {
             headers: {
               apiskey: process.env.REACT_APP_API_SECRET_KEY,
-              'Access-Control-Allow-Origin' : '*',
+              "Access-Control-Allow-Origin": "*",
             },
           })
         ).data;
 
         let { status } = data;
 
+        console.log("status from back end on product ghg info");
+        console.log(status);
+        console.log(data);
+
         // Update only if the product exists in the backend
         // TODO: Remove "Beef" type checking in the future (this is hardcoded for MVP purposes)
         if (status === true) {
-
-          let { product:finalCartItem } = data;
+          let { product: finalCartItem } = data;
 
           // Multiply ghg according to quantity and set it in state
           let newTotalGHG = finalCartItem.carbon * rawCartItem.quantity;
@@ -70,4 +73,4 @@ export default function getProductsWithCarbon (messageData, sendResponse) {
 
     return true;
   });
-};
+}

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 import Nav from "../components/Nav";
-import {Header} from "../components/Header";
+import { Header } from "../components/Header";
 
 import Cart from "../pages/Cart";
 import Home from "../pages/Home";
@@ -10,15 +10,14 @@ import Settings from "../pages/Settings";
 import Product from "../pages/Product";
 //import ProductDetails from "../pages/ProductDetails";
 
-  // width: 315px;
-  // min-height: 558px;
+// width: 315px;
+// min-height: 558px;
 
-  // width: 100%;
-  // min-width: 315px;
-  // height: 558px;
+// width: 100%;
+// min-width: 315px;
+// height: 558px;
 
-  //  width: 247px;
-
+//  width: 247px;
 
 const ExtensionContainer = styled.div`
   height: 100%;
@@ -40,14 +39,14 @@ function Extension({ mode = "" }) {
 
   if (mode === "product") {
     return (
-      <ExtensionContainer className="flex-col justify-between relative h-full flex">
+      <ExtensionContainer className="relative flex flex-col justify-between h-full">
         <Header closeExtension={closeExtension} />
         <Product />
       </ExtensionContainer>
     );
   } else {
     return (
-      <ExtensionContainer className="flex-col justify-between relative h-full flex">
+      <ExtensionContainer className="relative flex flex-col justify-between h-full">
         <Header closeExtension={closeExtension} />
         {/* {currentPage === "Home" ? <Home /> : null}
         {currentPage === "Settings" ? <Settings /> : null}
